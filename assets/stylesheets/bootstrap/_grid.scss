@@ -10,14 +10,20 @@
 .container {
   @include container-fixed;
 
+  @media (min-width: $screen-tn-min) {
+    width: $container-tn;
+  }
+  @media (min-width: $screen-xs-min) {
+    width: $container-xs;
+  }
   @media (min-width: $screen-sm-min) {
     width: $container-sm;
   }
-  @media (min-width: $screen-md-min) {
-    width: $container-md;
-  }
   @media (min-width: $screen-lg-min) {
     width: $container-lg;
+  }
+  @media (min-width: $screen-xl-min) {
+    width: $container-xl;
   }
 }
 
@@ -48,12 +54,24 @@
 @include make-grid-columns;
 
 
+// Tiny grid
+//
+// Columns, offsets, pushes, and pulls for tiny devices like
+// smartphone portrait.
+
+@media (min-width: $screen-tn-min) {
+  @include make-grid(tn);
+}
+
+
 // Extra small grid
 //
 // Columns, offsets, pushes, and pulls for extra small devices like
-// smartphones.
+// smartphone landscape.
 
-@include make-grid(xs);
+@media (min-width: $screen-xs-min) {
+  @include make-grid(xs);
+}
 
 
 // Small grid
@@ -81,4 +99,13 @@
 
 @media (min-width: $screen-lg-min) {
   @include make-grid(lg);
+}
+
+
+// Extra large grid
+//
+// Columns, offsets, pushes, and pulls for the tv device range.
+
+@media (min-width: $screen-xl-min) {
+  @include make-grid(xl);
 }

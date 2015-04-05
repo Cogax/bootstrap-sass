@@ -18,8 +18,8 @@
   @include clearfix;
 }
 
-// Generate the extra small columns
-@mixin make-xs-column($columns, $gutter: $grid-gutter-width) {
+// Generate the tiny columns
+@mixin make-tn-column($columns, $gutter: $grid-gutter-width) {
   position: relative;
   float: left;
   width: percentage(($columns / $grid-columns));
@@ -27,14 +27,42 @@
   padding-left:  ($gutter / 2);
   padding-right: ($gutter / 2);
 }
-@mixin make-xs-column-offset($columns) {
+@mixin make-tn-column-offset($columns) {
   margin-left: percentage(($columns / $grid-columns));
 }
-@mixin make-xs-column-push($columns) {
+@mixin make-tn-column-push($columns) {
   left: percentage(($columns / $grid-columns));
 }
-@mixin make-xs-column-pull($columns) {
+@mixin make-tn-column-pull($columns) {
   right: percentage(($columns / $grid-columns));
+}
+
+// Generate the extra small columns
+@mixin make-xs-column($columns, $gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-xs-min) {
+    float: left;
+    width: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-xs-column-offset($columns) {
+  @media (min-width: $screen-xs-min) {
+    margin-left: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-xs-column-push($columns) {
+  @media (min-width: $screen-xs-min) {
+    left: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-xs-column-pull($columns) {
+  @media (min-width: $screen-xs-min) {
+    right: percentage(($columns / $grid-columns));
+  }
 }
 
 // Generate the small columns
@@ -117,6 +145,34 @@
 }
 @mixin make-lg-column-pull($columns) {
   @media (min-width: $screen-lg-min) {
+    right: percentage(($columns / $grid-columns));
+  }
+}
+
+// Generate the extra large columns
+@mixin make-xl-column($columns, $gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-xl-min) {
+    float: left;
+    width: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-xl-column-offset($columns) {
+  @media (min-width: $screen-xl-min) {
+    margin-left: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-xl-column-push($columns) {
+  @media (min-width: $screen-xl-min) {
+    left: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-xl-column-pull($columns) {
+  @media (min-width: $screen-xl-min) {
     right: percentage(($columns / $grid-columns));
   }
 }

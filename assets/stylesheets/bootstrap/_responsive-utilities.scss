@@ -188,7 +188,7 @@
   @include responsive-invisibility('.hidden-lg');
 }
 
-@media (min-width: $screen-lg-min) {
+@media (min-width: $screen-xl-min) {
   @include responsive-invisibility('.hidden-xl');
 }
 

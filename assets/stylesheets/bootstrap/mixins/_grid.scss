@@ -11,6 +11,29 @@
   @include clearfix;
 }
 
+@mixin make-container() {
+  @include container-fixed;
+
+  @media (min-width: $screen-tn-min) {
+    width: $container-tn;
+  }
+  @media (min-width: $screen-xs-min) {
+    width: $container-xs;
+  }
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+  @media (min-width: $screen-xl-min) {
+    width: $container-xl;
+  }
+}
+
 // Creates a wrapper for a series of columns
 @mixin make-row($gutter: $grid-gutter-width) {
   margin-left:  ($gutter / -2);
